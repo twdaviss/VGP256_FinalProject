@@ -76,7 +76,7 @@ public class VerletChainSimulation : MonoBehaviour
     private void Update()
     {
         float adjustedMoveSpeed = moveSpeed;
-        if (isInTension)
+        if (isInTension && setLastNodeHeavy)
         {
             adjustedMoveSpeed *= 0.3f;
         }
@@ -134,7 +134,7 @@ public class VerletChainSimulation : MonoBehaviour
 
             nodes[i].position = newPos;
 
-            float gravity = gravityScale * nodes[i].mass * drag * deltaTime;
+            float gravity = gravityScale * nodes[i].mass * deltaTime;
             nodes[i].position.y += gravity;
         }
     }
